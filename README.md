@@ -10,3 +10,7 @@
 ```                  
 # KeyLogger
 A mini project to make a keylogger can send file logs on a preset schedule
+- You can change time to receive file log
+- run control.cmd to put malware file to folder Start Up
+
+
